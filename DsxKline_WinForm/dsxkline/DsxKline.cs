@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
@@ -56,7 +53,7 @@ namespace DsxKline_WinForm.dsxkline
         // 每次缩放大小
         public double zoomStep = 1;
         // k线默认宽度
-        public double klineWidth = 10;
+        public double klineWidth = 5;
         // 是否显示默认k线提示
         public bool isShowKlineTipPannel = true;
         // 副图高度
@@ -68,9 +65,9 @@ namespace DsxKline_WinForm.dsxkline
         // 默认主图指标 ["MA"]
         public String[] main = new String[] { "MA" };
         // 默认副图指标 副图数组代表副图数量 ["VOL","MACD"]
-        public String[] sides = new String[] { "VOL", "MACD" };
+        public String[] sides = new String[] { "VOL", "MACD", "RSI" };
         // 昨日收盘价
-        public double lastClose;
+        public double lastClose = 0;
         // 首次加载回调
         public OnLoading onLoading;
         // 完成加载回调
@@ -115,6 +112,8 @@ namespace DsxKline_WinForm.dsxkline
         {
             String js = "console.log('create kline js');" +
                "var c = document.getElementById(\"kline\");" +
+               "dsxConfig.theme.white.klineWidth="+klineWidth+";"+
+               "dsxConfig.theme.dark.klineWidth=" + klineWidth + ";" +
                "var kline = new dsxKline({" +
                    "element:c," +
                    "chartType:"+ (int)chartType+"," +
@@ -122,7 +121,7 @@ namespace DsxKline_WinForm.dsxkline
                    "candleType:" + (int)candleType + "," +
                    "zoomLockType: " + (int)zoomLockType + "," +
                    "isShowKlineTipPannel:"+(isShowKlineTipPannel?"true":"false")+"," +
-                   "lastClose: "+lastClose+"," +
+                   (lastClose>0?"lastClose: " +lastClose+",":"") +
                    "sideHeight: " +sideHeight+"," +
                    "paddingBottom: "+paddingBottom+"," +
                    "autoSize: true," +
@@ -158,7 +157,7 @@ namespace DsxKline_WinForm.dsxkline
                "datas:"+ data + "," +
                "page:'" + page + "'," +
                "chartType:" + (int)chartType + "," +
-               "lastClose: " + lastClose + "," +
+               (lastClose > 0 ? "lastClose: " + lastClose + "," : "") +
                "main:" + Newtonsoft.Json.JsonConvert.SerializeObject(main) + "," +
                "sides:" + Newtonsoft.Json.JsonConvert.SerializeObject(sides) + ", " +
            "})};";

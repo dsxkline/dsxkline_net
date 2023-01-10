@@ -1,14 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
 using DsxKline_WinForm.dsxkline;
 
 namespace DsxKline_WinForm
@@ -18,8 +10,8 @@ namespace DsxKline_WinForm
         DsxKline dsxkline;
         int page = 1;
         List<String> datas;
-        String cycle = "timeline";
-        String code = "sh000001";
+        String cycle = "day";
+        String code = "sz300059";
         int y = 50;
         int x = 5;
         public Form1()
@@ -86,7 +78,7 @@ namespace DsxKline_WinForm
             }
             else
             {
-                List<String> data = QqHq.getkLine(code, cycle, "", "", 320, "qfq");
+                List<String> data = QqHq.getkLine(code, cycle, "", "", 320, "qfqday");
                 if (data.Count > 0)
                 {
                     //d.data = [];
@@ -177,7 +169,8 @@ namespace DsxKline_WinForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tab(0);
+            tab(2);
+           // tab(2);
         }
         private void Form1_SizeChanged(object sender, EventArgs e)
         {

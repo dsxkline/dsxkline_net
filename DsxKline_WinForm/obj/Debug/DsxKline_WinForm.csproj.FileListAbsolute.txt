@@ -100,3 +100,4 @@ E:\大师兄K线图\DsxKline_WinForm\DsxKline_WinForm\bin\Debug\dsxkline\index.h
 E:\大师兄K线图\DsxKline_WinForm\DsxKline_WinForm\bin\Debug\Newtonsoft.Json.dll
 E:\大师兄K线图\DsxKline_WinForm\DsxKline_WinForm\bin\Debug\Newtonsoft.Json.xml
 E:\大师兄K线图\DsxKline_WinForm\DsxKline_WinForm\obj\Debug\DsxKline_WinForm.dsxkline.DsxKline.resources
+E:\大师兄K线图\DsxKline_WinForm\DsxKline_WinForm\bin\Debug\dsxkline\dsx.kline_v_1_1_0.js

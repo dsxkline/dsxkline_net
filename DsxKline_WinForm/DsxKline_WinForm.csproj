@@ -110,6 +110,9 @@
     <Content Include="dsxkline\dsx.kline_v_1_0_1.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="dsxkline\dsx.kline_v_1_1_0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="dsxkline\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
